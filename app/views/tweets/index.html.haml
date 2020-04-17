@@ -1,0 +1,16 @@
+.wrapper
+  .content
+    .content__left
+    - if user_signed_in?
+      %ul
+        %li= link_to 'ログアウト', destroy_user_session_path, method: :delete
+        %li= link_to '投稿する', new_tweet_path
+    - else
+      %li= link_to 'ログイン', new_user_session_path
+      %li= link_to '新規登録', new_user_registration_path
+    .content__center
+      - @tweets.each do |tweet|
+        = link_to "#{tweet.user.name}", '#'
+        = link_to "#{tweet.text}", '#'
+        = image_tag tweet.image, size: '160x160'
+    .content__right
