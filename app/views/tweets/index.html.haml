@@ -10,7 +10,7 @@
       %li= link_to '新規登録', new_user_registration_path
     .content__center
       - @tweets.each do |tweet|
-        = link_to "#{tweet.user.name}", '#'
-        = link_to "#{tweet.text}", '#'
+        %p #{tweet.user.name}
+        %p #{tweet.text}
         = image_tag tweet.image, size: '160x160'
     .content__right

@@ -1,0 +1,7 @@
+.wrapper
+  = form_with model: @tweet, local: true do |f|
+    = f.label :text
+    = f.text_area :text, placeholder: '本文', autoforcus: true
+    = f.label :'画像'
+    = f.text_field :image, placeholder: 'image', autoforcus: true
+    = f.submit '送信'
