@@ -1,0 +1,6 @@
+.wrapper
+  %p #{@tweet.user.name}
+  %p #{@tweet.text}
+  = image_tag @tweet.image, size: '160x160'
+  %br/
+  = link_to '戻る', root_path
