@@ -1,0 +1,5 @@
+.wrapper
+  %p #{current_user.name}
+  - @tweets.each do |tweet|
+    %p #{tweet.text}
+    %p= image_tag tweet.image, size: '160x160'
