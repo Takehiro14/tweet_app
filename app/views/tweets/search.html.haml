@@ -1,0 +1,10 @@
+.wrapper
+  - @tweets.each do |tweet|
+    %p= link_to '詳細', tweet_path(tweet)
+    - if user_signed_in? && tweet.user_id == current_user.id
+      %p= link_to '編集', edit_tweet_path(tweet)
+      %p= link_to '削除', tweet_path(tweet), method: :delete, data: { confirm: '削除しますか？' }
+    %p #{tweet.user.name}
+    %p #{tweet.text}
+    = image_tag tweet.image, size: '160x160'
+  = link_to '戻る', root_path

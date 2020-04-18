@@ -35,6 +35,10 @@ class TweetsController < ApplicationController
     @comments = @tweet.comments.includes(:user).order("created_at DESC")
   end
 
+  def search
+    @tweets = Tweet.search(params[:search]).order("created_at DESC")
+  end
+
   private
 
   def tweet_params
