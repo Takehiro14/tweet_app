@@ -2,5 +2,13 @@
   %p #{@tweet.user.name}
   %p #{@tweet.text}
   = image_tag @tweet.image, size: '160x160'
+  .comment
+  - if user_signed_in?
+    = form_with(model: [@tweet, @comment], local: true) do |f|
+      = f.text_area :text, placeholder: 'コメントをする'
+      = f.submit '送信'
+  .comment__field
+    - @comments.each do |comment|
+      %p #{comment.user.name} : #{comment.text}
   %br/
   = link_to '戻る', root_path
